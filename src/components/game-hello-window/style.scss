@@ -1,0 +1,78 @@
+$helloColor: black;
+
+.start-game-container {
+  margin: auto;
+  position: relative;
+  width: 800px;
+  height: 440px;
+  z-index: 90;
+  .game-container-1 {
+    position: absolute;
+    border: 10px solid $helloColor;
+    height: 400px;
+    width: 800px;
+    background-color: $helloColor;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    .nn-loader {
+      margin-bottom: 0;
+    }
+    h1, p {
+      color: white;
+      width: 600px;
+    }
+    .button-container {
+      position: relative;
+      width: 600px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .button-8bit {
+      position: relative;
+      z-index: 100;
+      cursor: pointer;
+      width: 80px;
+      height: 40px;
+      background-color: white;
+      margin-right: 64px;
+      &::after {
+        position: absolute;
+        content: 'Yes';
+        text-align: center;
+        width: 80px;
+        height: 40px;
+        top: 10px;
+        left: 10px;
+        background-color: white;
+      }
+    }
+    .button-8bit:last-of-type {
+      margin-right: 0;
+      &::after {
+        content: 'No';
+      }
+    }
+  }
+  .game-container-2  {
+    top: -10px;
+    left: 10px;
+    position: absolute;
+    border: 10px solid $helloColor;
+    height: 420px;
+    width: 780px;
+  }
+  .game-container-3  {
+    top: -20px;
+    left: 20px;
+    position: absolute;
+    border: 10px solid $helloColor;
+    height: 440px;
+    width: 760px;
+  }
+}
+

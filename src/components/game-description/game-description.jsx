@@ -1,0 +1,16 @@
+import React from 'react'
+
+import './style.scss'
+
+export const GameDescription = () => {
+    return (
+        <div className="game-description-container">
+            <h1 className="game-description-title">
+                Speech manipulation racing v0.0.1
+            </h1>
+            <div className="game-description-rules">
+                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, adipisci aliquam aut beatae consequatur, deserunt dolores ea eligendi esse, explicabo harum illum magnam nesciunt nostrum quidem sed sequi velit voluptatem?</span>
+            </div>
+        </div>
+    )
+}

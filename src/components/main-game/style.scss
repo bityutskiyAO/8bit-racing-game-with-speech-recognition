@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'OldSchool';
+  src: url("../../assets/fonts/8bit-font.ttf")
+}
+
+.app-container {
+  display: flex;
+  padding: 0 32px 32px;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+}
+.game-container {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
