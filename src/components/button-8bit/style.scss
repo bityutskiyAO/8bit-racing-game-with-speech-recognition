@@ -1,0 +1,32 @@
+.button-8bit {
+  position: relative;
+  z-index: 100;
+  cursor: pointer;
+  text-align: center;
+  width: 80px;
+  height: 40px;
+  background-color: white;
+  color: black;
+  margin-right: 64px;
+}
+
+.button-8bit:last-of-type {
+  margin-right: 0;
+}
+
+.button-8bit-after {
+  position: absolute;
+  width: 80px;
+  height: 40px;
+  top: 10px;
+  left: 10px;
+  background-color: white;
+}
+
+.reset-btn {
+  width: 100px;
+  font-size: 15px;
+  .button-8bit-after {
+    width: 100px;
+  }
+}

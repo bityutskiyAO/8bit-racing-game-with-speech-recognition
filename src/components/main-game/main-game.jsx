@@ -19,6 +19,8 @@ const initialState = {
     }),
     gameCar: null,
     enemyCars: null,
+    currentRoad: null,
+    topRoad: null,
     stopTimer: false,
     gameDuration: '',
     gameReward: 0,
@@ -75,7 +77,8 @@ class MainGame extends React.Component {
 
         this.setState({
             enemyCars: [{id: 0, enemy: enemyCarSprite, direction: 'front'}],
-            gameCar: gameCarSprite
+            gameCar: gameCarSprite,
+            currentRoad: roadSprite
         })
 
         app.ticker.add(delta => this.gameLoop(delta))
@@ -110,7 +113,7 @@ class MainGame extends React.Component {
         switch (carDirection) {
             case MAIN_GAME_CAR: {
                 gameCarSprite.rotation = Math.PI
-                gameCarSprite.position.set(gameField.width - gameField.width / 4 + gameCarSprite.width / 2 + 35, gameField.height)
+                gameCarSprite.position.set(gameField.width - gameField.width / 4 + gameCarSprite.width / 2 + 35, gameField.height - 50)
                 break
             }
             case OFFCOMING_ENEMY_CAR: {
@@ -128,6 +131,47 @@ class MainGame extends React.Component {
         return gameCarSprite
     }
 
+    createNewRoad = () => {
+        const { app } = this.state
+        const newRoad = TextureCache["road"]
+        const newRoadSprite = new Sprite(newRoad)
+        newRoadSprite.width = app.view.width
+        newRoadSprite.height = app.view.height
+        newRoadSprite.position.set(0, -app.view.height)
+        app.stage.addChildAt(newRoadSprite, 0)
+        return newRoadSprite
+    }
+
+
+    moveRoad = () => {
+        const { currentRoad, topRoad } = this.state
+        this.isUpdateRoadStateNeed(currentRoad)
+        currentRoad.vy = 2
+        currentRoad.y += currentRoad.vy
+        if (topRoad) {
+            topRoad.vy = 2
+            topRoad.y += topRoad.vy
+        }
+        if (!topRoad && currentRoad.y >= 0) {
+            this.setState({
+                topRoad: this.createNewRoad()
+            })
+        }
+    }
+
+    isUpdateRoadStateNeed = (currentRoad) => {
+        const { app } = this.state
+        if (currentRoad.y >= app.view.height) {
+            this.setState((prevState) => {
+                return {
+                    currentRoad: prevState.topRoad,
+                    topRoad: null
+                }
+            })
+            app.stage.removeChild(currentRoad)
+        }
+    }
+
     /**
      *  Листенер игрового цикла
      *  Определение движения игровой машины - this.moveCar
@@ -141,6 +185,7 @@ class MainGame extends React.Component {
                 this.moveCar(this.context)
             }
             if (gameCar && enemyCars) {
+                this.moveRoad()
                 enemyCars.forEach((car) => {
                     const {enemy, direction, id} = car
                     enemy.vx = 0
@@ -254,13 +299,14 @@ class MainGame extends React.Component {
      * Отчистка игрового стейта после конца игры
      */
     stopAllMovement = () => {
+        const { app } = this.state
         clearInterval(this.intervalId)
+        app.ticker.stop()
         this.clearAllEnemies()
         this.setState({
             enemyCars: [],
             stopTimer: true,
-            isCrashing: true,
-            gameReward: 0
+            isCrashing: true
         })
         this.props.setNNPaused(true)
         this.props.setMoveDirection('stop')
@@ -328,11 +374,13 @@ class MainGame extends React.Component {
     /**
      * Запуск новой игры
      */
-    onResetGame = () => {
+    onRestartGameClick = () => {
         const { gameCar, app } = this.state
+        app.ticker.start()
         this.setState({
             isCrashing: false,
-            stopTimer: false
+            stopTimer: false,
+            gameReward: 0
         })
         this.props.setMoveDirection('stop')
         this.setInitialGameCarPosition(gameCar, app.view)
@@ -346,7 +394,7 @@ class MainGame extends React.Component {
      * @param gameField
      */
     setInitialGameCarPosition = (gameCar, gameField) => {
-        gameCar.position.set(gameField.width - gameField.width / 4 + gameCar.width / 2 + 35, gameField.height)
+        gameCar.position.set(gameField.width - gameField.width / 4 + gameCar.width / 2 + 35, gameField.height - 50)
     }
 
     /**
@@ -372,16 +420,12 @@ class MainGame extends React.Component {
                     />
                     {isCrashing &&
                     <GameOver
-                        onResetGame={this.onResetGame}
+                        gameReward={gameReward}
+                        onRestartGameClick={this.onRestartGameClick}
                         finalTime={gameDuration}
                     />
                     }
                 </div>
-                {/*<button onClick={this.handleCarMoving} id="left">Left</button>*/}
-                {/*<button onClick={this.handleCarMoving} id="right">Right</button>*/}
-                {/*<button onClick={this.handleCarMoving} id="top">Top</button>*/}
-                {/*<button onClick={this.handleCarMoving} id="bottom">Bottom</button>*/}
-                {/*<button onClick={this.handleCarMoving} id="stop">Stop</button>*/}
             </div>
         )
     }

@@ -1,5 +1,9 @@
 .container {
     display: flex;
+    padding-left: 64px;
+    padding-right: 64px;
+    justify-content: center;
+    align-items: center;
     min-height: 100vh;
-    width: 100%;
+    min-width: 100vh;
 }

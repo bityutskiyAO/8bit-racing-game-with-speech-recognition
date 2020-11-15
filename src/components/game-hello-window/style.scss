@@ -31,30 +31,8 @@ $helloColor: black;
       display: flex;
       align-items: center;
       justify-content: center;
-    }
-    .button-8bit {
-      position: relative;
-      z-index: 100;
-      cursor: pointer;
-      width: 80px;
-      height: 40px;
-      background-color: white;
-      margin-right: 64px;
-      &::after {
-        position: absolute;
-        content: 'Yes';
-        text-align: center;
-        width: 80px;
-        height: 40px;
-        top: 10px;
-        left: 10px;
-        background-color: white;
-      }
-    }
-    .button-8bit:last-of-type {
-      margin-right: 0;
-      &::after {
-        content: 'No';
+      :last-child{
+        margin-right: 0;
       }
     }
   }
