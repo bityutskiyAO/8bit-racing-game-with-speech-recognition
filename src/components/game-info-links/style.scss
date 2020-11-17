@@ -1,0 +1,18 @@
+.info-links {
+  &__container {
+    display: flex;
+    width: 400px;
+    height: 300px;
+    flex-direction: column;
+    justify-content: center;
+  }
+  &__links-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    min-height: 64px;
+    :not(:last-child) {
+      margin-right: 32px;
+    }
+  }
+}

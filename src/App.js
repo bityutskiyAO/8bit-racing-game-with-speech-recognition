@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
 
-import {GameDescription, GameHelloWindow, MainGame} from "./components";
+import {GameDescription, GameHelloWindow, GameInfoLinks, MainGame} from "./components";
 import {initSpeechRecognitionModel, predictWord} from "./neuronal-network/speach-recognition";
 import {GameContext} from './gameContext'
 
 import './App.css'
+import {socialNetworks} from "./constants";
 
 const App = (props) => {
     const [isNNEnable, setNNEnable] = useState(false)
@@ -15,7 +16,6 @@ const App = (props) => {
 
     useEffect(() => {
         document.addEventListener('keydown', (e) => {
-
             switch (e.code) {
                 case 'KeyW':
                 case'ArrowUp': {
@@ -54,12 +54,14 @@ const App = (props) => {
         })
     }
 
-    const onInitButtonClick = async (value) => {
+    const onInitButtonClick = (value) => {
         setNNEnable(value)
+        console.log('value', value)
         if (value) {
             initSpeechRecognitionModel()
                 .then((recognizer) => {
                     predictWord(recognizer, changeCarDirectionByVoice, isPaused);
+                    console.log('LOADED')
                     setLoaded(true)
                     setHelloWindowShow(false)
                 })
@@ -76,14 +78,22 @@ const App = (props) => {
                 />
             }
             {!isHelloWindowShow && (!isNNEnable || isNNLoaded) &&
-                <GameContext.Provider value={moveDirection}>
+                <>
                     <GameDescription/>
-                    <MainGame
-                        setNNPaused={togglePaused}
-                        moveDirection={moveDirection}
-                        setMoveDirection={setMoveDirection}
-                    />
-                </GameContext.Provider>
+                    <GameContext.Provider value={moveDirection}>
+                        <MainGame
+                            setNNPaused={togglePaused}
+                            moveDirection={moveDirection}
+                            setMoveDirection={setMoveDirection}
+                        />
+                    </GameContext.Provider>
+                    <div className="contact-links">
+                        <GameInfoLinks
+                            title="Follow us"
+                            imgLinks={socialNetworks}
+                        />
+                    </div>
+                </>
             }
         </div>
     )

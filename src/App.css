@@ -2,8 +2,12 @@
     display: flex;
     padding-left: 64px;
     padding-right: 64px;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     min-height: 100vh;
     min-width: 100vh;
+}
+
+.contact-links {
+    margin-top: 640px;
 }

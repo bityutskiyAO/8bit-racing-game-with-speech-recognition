@@ -28,6 +28,7 @@ const initialState = {
     isNeuronalNetworkLoaded: false,
     pauseSpeechRecognition: false,
     isStartWindowShown: true
+
 }
 
 class MainGame extends React.Component {
@@ -39,6 +40,7 @@ class MainGame extends React.Component {
         this.rootContainerRef = React.createRef()
         this.state = initialState
         this.xAxisOffset = 0
+        this.enemyCarsId = 0
     }
 
     /**
@@ -76,7 +78,7 @@ class MainGame extends React.Component {
         app.stage.addChild(enemyCarSprite)
 
         this.setState({
-            enemyCars: [{id: 0, enemy: enemyCarSprite, direction: 'front'}],
+            enemyCars: [{id:  this.enemyCarsId, enemy: enemyCarSprite, direction: 'front'}],
             gameCar: gameCarSprite,
             currentRoad: roadSprite
         })
@@ -136,8 +138,9 @@ class MainGame extends React.Component {
         const newRoad = TextureCache["road"]
         const newRoadSprite = new Sprite(newRoad)
         newRoadSprite.width = app.view.width
-        newRoadSprite.height = app.view.height
-        newRoadSprite.position.set(0, -app.view.height)
+        // 23 - какая-то проблема с высотой картинки
+        newRoadSprite.height = app.view.height + 23
+        newRoadSprite.position.set(0, -app.view.height + 23)
         app.stage.addChildAt(newRoadSprite, 0)
         return newRoadSprite
     }
@@ -238,7 +241,7 @@ class MainGame extends React.Component {
             const enemyDirection = this.calcRandomPosition() ? OFFCOMING_ENEMY_CAR : ONCOMING_ENEMY_CAR
             let newEnemy = this.createCarSprite(enemyDirection, 'enemyCar')
             this.setState((prevState) => {
-                prevState.enemyCars.push({id: prevState.enemyCars.length, enemy: newEnemy, direction: enemyDirection})
+                prevState.enemyCars.push({id: ++this.enemyCarsId, enemy: newEnemy, direction: enemyDirection})
                 return {
                     enemyCars: [...prevState.enemyCars]
                 }

@@ -7,8 +7,8 @@ export const Button8Bit = props => {
     const { id, handleButtonOnClick, title, classNames, reference } = props
 
     return (
-        <div ref={reference} id={id} className={`button-8bit ${classNames}`} onClick={handleButtonOnClick}>
-            <div className="button-8bit-after">{title}</div>
+        <div ref={reference} className={`button-8bit ${classNames}`} onClick={handleButtonOnClick}>
+            <div id={id} className="button-8bit-after">{title}</div>
         </div>
     )
 }

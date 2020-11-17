@@ -4,6 +4,7 @@ import {GameOver} from './game-over/game-over'
 import {GameHelloWindow} from './game-hello-window/game-hello-window'
 import MainGame from './main-game/main-game'
 import {Button8Bit} from './button-8bit/button-8bit'
+import {GameInfoLinks} from './game-info-links/game-info-links'
 
 export {
     GameStatusBar,
@@ -11,5 +12,6 @@ export {
     GameOver,
     GameHelloWindow,
     MainGame,
-    Button8Bit
+    Button8Bit,
+    GameInfoLinks
 }
