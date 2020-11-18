@@ -1,0 +1,36 @@
+{
+  "files": {
+    "main.css": "/8bit-racing-game-with-speech-recognition/static/css/main.f72ae655.chunk.css",
+    "main.js": "/8bit-racing-game-with-speech-recognition/static/js/main.a6c48fed.chunk.js",
+    "main.js.map": "/8bit-racing-game-with-speech-recognition/static/js/main.a6c48fed.chunk.js.map",
+    "runtime-main.js": "/8bit-racing-game-with-speech-recognition/static/js/runtime-main.8cde0544.js",
+    "runtime-main.js.map": "/8bit-racing-game-with-speech-recognition/static/js/runtime-main.8cde0544.js.map",
+    "static/js/2.4aa87fba.chunk.js": "/8bit-racing-game-with-speech-recognition/static/js/2.4aa87fba.chunk.js",
+    "static/js/2.4aa87fba.chunk.js.map": "/8bit-racing-game-with-speech-recognition/static/js/2.4aa87fba.chunk.js.map",
+    "static/js/3.16b0dde1.chunk.js": "/8bit-racing-game-with-speech-recognition/static/js/3.16b0dde1.chunk.js",
+    "static/js/3.16b0dde1.chunk.js.map": "/8bit-racing-game-with-speech-recognition/static/js/3.16b0dde1.chunk.js.map",
+    "index.html": "/8bit-racing-game-with-speech-recognition/index.html",
+    "static/css/main.f72ae655.chunk.css.map": "/8bit-racing-game-with-speech-recognition/static/css/main.f72ae655.chunk.css.map",
+    "static/js/2.4aa87fba.chunk.js.LICENSE.txt": "/8bit-racing-game-with-speech-recognition/static/js/2.4aa87fba.chunk.js.LICENSE.txt",
+    "static/media/style.scss": "/8bit-racing-game-with-speech-recognition/static/media/8bit-font.dc35dcc6.ttf",
+    "static/media/8bit-road.b23dcd4f.png": "/8bit-racing-game-with-speech-recognition/static/media/8bit-road.b23dcd4f.png",
+    "static/media/enemyCar.120d001c.png": "/8bit-racing-game-with-speech-recognition/static/media/enemyCar.120d001c.png",
+    "static/media/github.fa0212fe.svg": "/8bit-racing-game-with-speech-recognition/static/media/github.fa0212fe.svg",
+    "static/media/instagram.53626cb1.svg": "/8bit-racing-game-with-speech-recognition/static/media/instagram.53626cb1.svg",
+    "static/media/keyboard-arrows.528a7946.png": "/8bit-racing-game-with-speech-recognition/static/media/keyboard-arrows.528a7946.png",
+    "static/media/myCar.ebc799fd.png": "/8bit-racing-game-with-speech-recognition/static/media/myCar.ebc799fd.png",
+    "static/media/npm.e6f64ab2.svg": "/8bit-racing-game-with-speech-recognition/static/media/npm.e6f64ab2.svg",
+    "static/media/pixi.3119a835.svg": "/8bit-racing-game-with-speech-recognition/static/media/pixi.3119a835.svg",
+    "static/media/react.928f956d.svg": "/8bit-racing-game-with-speech-recognition/static/media/react.928f956d.svg",
+    "static/media/reward.f6fccba0.png": "/8bit-racing-game-with-speech-recognition/static/media/reward.f6fccba0.png",
+    "static/media/tf.d4a01935.svg": "/8bit-racing-game-with-speech-recognition/static/media/tf.d4a01935.svg",
+    "static/media/tree-8bit.842fadc3.png": "/8bit-racing-game-with-speech-recognition/static/media/tree-8bit.842fadc3.png",
+    "static/media/vk.e9c609fb.svg": "/8bit-racing-game-with-speech-recognition/static/media/vk.e9c609fb.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8cde0544.js",
+    "static/js/2.4aa87fba.chunk.js",
+    "static/css/main.f72ae655.chunk.css",
+    "static/js/main.a6c48fed.chunk.js"
+  ]
+}
