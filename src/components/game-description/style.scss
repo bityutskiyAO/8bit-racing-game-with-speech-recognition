@@ -4,18 +4,11 @@
   height: 800px;
   display: flex;
   flex-direction: column;
+  justify-content: flex-end;
   margin-top: 64px;
-
-  .game-description-title {
-
-  }
 
   .game-description-rules {
     font-size: 16px;
-  }
-
-  .game-description-links {
-    margin-top: 200px;
   }
 
 }

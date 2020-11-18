@@ -24,8 +24,9 @@ export const GameHelloWindow = (props) => {
     return (
         <div className="start-game-container" onKeyUp={handleKeyUp} tabIndex="0">
             <div className="game-container-1">
-                <h1>Speech manipulation racing v0.0.1</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa dignissimos exercitationem hic, labore magni reiciendis vitae? Beatae fugit, harum iusto perspiciatis quo reprehenderit sint suscipit voluptate? Amet illum tempora voluptatibus.</p>
+                <h1> 8-bit Racing v0.0.1</h1>
+
+                <p>This mini-game use a neural network for voice recognition. You can control the car using voice commands. To enable the neural network, click "Yes"</p>
                 {!isLoading
                     ?
                     <>

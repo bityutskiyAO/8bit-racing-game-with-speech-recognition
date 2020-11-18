@@ -10,6 +10,7 @@ import react from './react.svg'
 import github from './github.svg'
 import vk from './vk.svg'
 import insta from './instagram.svg'
+import keyBoardArrows from './keyboard-arrows.png'
 
 export {
     enemyCar,
@@ -23,5 +24,6 @@ export {
     react,
     github,
     vk,
-    insta
+    insta,
+    keyBoardArrows
 }

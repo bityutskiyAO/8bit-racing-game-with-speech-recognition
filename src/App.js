@@ -5,7 +5,7 @@ import {initSpeechRecognitionModel, predictWord} from "./neuronal-network/speach
 import {GameContext} from './gameContext'
 
 import './App.css'
-import {socialNetworks} from "./constants";
+import {frameWorks, socialNetworks} from "./constants";
 
 const App = (props) => {
     const [isNNEnable, setNNEnable] = useState(false)
@@ -29,6 +29,7 @@ const App = (props) => {
                 }
                 case 'KeyS':
                 case 'ArrowDown': {
+                    e.preventDefault()
                     setMoveDirection('down')
                     break
                 }
@@ -79,7 +80,11 @@ const App = (props) => {
             }
             {!isHelloWindowShow && (!isNNEnable || isNNLoaded) &&
                 <>
-                    <GameDescription/>
+                    <GameDescription
+                        isTextNeed
+                        infoTitle="App build with"
+                        infoLinks={frameWorks}
+                    />
                     <GameContext.Provider value={moveDirection}>
                         <MainGame
                             setNNPaused={togglePaused}
@@ -87,12 +92,10 @@ const App = (props) => {
                             setMoveDirection={setMoveDirection}
                         />
                     </GameContext.Provider>
-                    <div className="contact-links">
-                        <GameInfoLinks
-                            title="Follow us"
-                            imgLinks={socialNetworks}
-                        />
-                    </div>
+                    <GameDescription
+                        infoTitle="Follow us"
+                        infoLinks={socialNetworks}
+                    />
                 </>
             }
         </div>
